@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
   const errorModal = document.getElementById("modal");
 
   for (ea of allLikeButtons) {
-    ea.addEventListener("click", async function(e) {
+    ea.addEventListener("click", function(e) {
 
       mimicServerCall()
         .then(function(resp) {
