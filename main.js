@@ -10,11 +10,13 @@ const banner = document.getElementById("modal");
 banner.className = "hidden"; 
 
 //  Grabs all the hearts
-const hearts = document.querySelectorAll(".like");
+const hearts = document.querySelectorAll(".like-glyph");
 
 // 
 function clickHeart(e) {
   let heart = e.target;
+  // let heart = document.querySelector(".like-glyph");
+
   // console.log(heart);
   mimicServerCall().then(() => {
     if (heart.innerText === EMPTY_HEART){
