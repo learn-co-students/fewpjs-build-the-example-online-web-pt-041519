@@ -2,7 +2,42 @@
 const EMPTY_HEART = '♡'
 const FULL_HEART = '♥'
 
+
 // Your JavaScript code goes here!
+
+// Hide the big red error
+const banner = document.getElementById("modal");
+banner.className = "hidden"; 
+
+//  Grabs all the hearts
+const hearts = document.querySelectorAll(".like");
+
+// 
+function clickHeart(e) {
+  let heart = e.target;
+  // console.log(heart);
+  mimicServerCall().then(() => {
+    if (heart.innerText === EMPTY_HEART){
+      heart.innerText = FULL_HEART;
+      // heart.style.color = 'red';
+      heart.classList.add("activated-heart");
+    } else {
+      heart.innerText = EMPTY_HEART;
+      heart.classList.remove("activated-heart");
+    }
+  }).catch(() =>{
+    banner.className = "visable";
+    setTimeout(()=> {
+      banner.className = "hidden";
+    }, 5000)
+  });
+}
+
+
+for (let heart of hearts) {
+  heart.addEventListener("click", clickHeart);
+}
+
 
 
 
