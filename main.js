@@ -12,7 +12,7 @@ banner.className = "hidden";
 //  Grabs all the hearts
 const hearts = document.querySelectorAll(".like-glyph");
 
-// 
+// What happens on click
 function clickHeart(e) {
   let heart = e.target;
   // let heart = document.querySelector(".like-glyph");
@@ -35,7 +35,7 @@ function clickHeart(e) {
   });
 }
 
-
+// Iterate over hearts to give them click heart event
 for (let heart of hearts) {
   heart.addEventListener("click", clickHeart);
 }
