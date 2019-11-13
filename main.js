@@ -3,9 +3,33 @@ const EMPTY_HEART = '♡'
 const FULL_HEART = '♥'
 
 // Your JavaScript code goes here!
+const glyphStates = {
+  '♡' : '♥',
+  '♥' : '♡'
+}
 
+const articleHeart = document.querySelectorAll(".like-glyph")
 
+function likeCallBack(e) {
+  const heart = e.target
 
+  mimicServerCall() 
+    .then(function() {
+      heart.innerText = glyphStates[heart.innerText]
+      heart.style.color = heart.classList.toggle("activated-heart")
+    })
+    .catch(function(error) {
+      const modal = document.getElementById("modal")
+      modal.classList.remove("hidden")
+      setTimeout(function() {
+        modal.classList.add("hidden")
+      }, 5000)
+    })
+}
+
+for(const check of articleHeart) {
+  check.addEventListener('click', likeCallBack)
+}
 
 //------------------------------------------------------------------------------
 // Ignore after this point. Used only for demo purposes
