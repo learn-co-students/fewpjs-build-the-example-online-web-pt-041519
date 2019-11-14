@@ -3,10 +3,35 @@ const EMPTY_HEART = '♡'
 const FULL_HEART = '♥'
 
 // Your JavaScript code goes here!
+let heartState = {
+  '♡': '♥',
+  '♥': '♡'
+}
 
+let colors = {
+  "": "red",
+  "red": ""
+}
 
+let modal = document.getElementById('modal')
+modal.classList = 'hidden'
 
+let hearts = document.getElementsByClassName('like')
+for (let glyph of hearts) {
+  glyph.addEventListener('click', changeState)
+}
 
+function changeState(e) {
+  let heart = e.target 
+  mimicServerCall('url')
+  .then(function(Message) {
+    heart.innerText = heartState[heart.innerText];
+    heart.style.color = colors[heart.style.color]
+  })
+  .catch(function(error) {
+    modal.className = ''
+  })
+}
 //------------------------------------------------------------------------------
 // Ignore after this point. Used only for demo purposes
 //------------------------------------------------------------------------------
