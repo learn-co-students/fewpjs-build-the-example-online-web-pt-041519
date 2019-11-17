@@ -4,7 +4,7 @@ const FULL_HEART = '♥'
 
 // Your JavaScript code goes here!
 document.addEventListener('DOMContentLoaded', function() {
-  // Grab all like buttons
+  // Grab all like buttons and error modal
   const heartBtn = document.querySelectorAll('span.like-glyph')
   const modal = document.getElementById('modal')
 
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
           modal.removeAttribute('class')
           // Display error message in the modal
           modal.innerText = error
-          // Hide modal after 5 seconds
+          // Hide modal again after 5 seconds
           setTimeout(function() {
             modal.className = 'hidden'
           }, 5000)
