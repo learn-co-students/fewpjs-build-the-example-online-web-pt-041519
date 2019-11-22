@@ -5,6 +5,15 @@ const FULL_HEART = '♥'
 // Your JavaScript code goes here!
 
 
+// document.addEventListener('DOMContentLoaded', () => {
+
+  const errModal = document.querySelector('#modal')
+  errModal.classList.add('hidden')
+
+  document.addEventListener('click', handleLike)
+
+
+// })
 
 
 //------------------------------------------------------------------------------
